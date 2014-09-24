@@ -12,10 +12,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feed" id="Z9J-gw-fvu">
-                                <rect key="frame" x="0.0" y="198" width="320" height="573"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" id="Aeh-YE-rIP">
                                 <rect key="frame" x="0.0" y="63" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -32,17 +28,27 @@
                                     <outletCollection property="gestureRecognizers" destination="KbT-g3-2Kj" appends="YES" id="hAW-mk-fAO"/>
                                 </connections>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feed" id="Z9J-gw-fvu">
+                                <rect key="frame" x="0.0" y="198" width="320" height="573"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="later_icon" id="wv1-7x-bSp">
                                 <rect key="frame" x="252" y="115" width="52" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reschedule" id="mT4-KO-caE">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reschedule" id="mT4-KO-caE">
                                 <rect key="frame" x="40" y="220" width="240" height="279"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="m3b-s7-PJK" appends="YES" id="hEd-b8-ASB"/>
+                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" id="1jl-jB-VRY">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" id="1jl-jB-VRY">
                                 <rect key="frame" x="75" y="285" width="240" height="214"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="m3b-s7-PJK" appends="YES" id="HZL-Jn-xJ3"/>
+                                </connections>
                             </imageView>
                             <view contentMode="scaleToFill" id="tvT-i4-svh">
                                 <rect key="frame" x="16" y="160" width="212" height="93"/>
@@ -52,14 +58,20 @@
                                 <rect key="frame" x="70" y="17" width="170" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_icon" id="vdw-8X-HHU">
+                                <rect key="frame" x="201" y="115" width="63" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="laterIcon" destination="wv1-7x-bSp" id="qhI-SW-Arm"/>
                         <outlet property="laterView" destination="mT4-KO-caE" id="9qX-jS-WMF"/>
+                        <outlet property="listIcon" destination="vdw-8X-HHU" id="UHO-1c-lGr"/>
                         <outlet property="mail" destination="SKd-L3-0lT" id="CTk-vp-b3I"/>
                         <outlet property="mailBackground" destination="tvT-i4-svh" id="pdi-mQ-xqG"/>
+                        <outlet property="mailsView" destination="Z9J-gw-fvu" id="bF6-pV-Yf5"/>
                         <outlet property="todoView" destination="1jl-jB-VRY" id="uLm-rg-gAw"/>
                     </connections>
                 </viewController>
@@ -69,6 +81,11 @@
                         <action selector="onMessagePan:" destination="vXZ-lx-hvc" id="1NW-Bz-Ij3"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="m3b-s7-PJK">
+                    <connections>
+                        <action selector="onActionViewTap:" destination="vXZ-lx-hvc" id="MQV-qZ-Mij"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="162" y="359"/>
         </scene>
@@ -78,6 +95,7 @@
         <image name="help_label" width="320" height="37"/>
         <image name="later_icon" width="25" height="25"/>
         <image name="list" width="320" height="568"/>
+        <image name="list_icon" width="25" height="25"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
         <image name="reschedule" width="320" height="568"/>
