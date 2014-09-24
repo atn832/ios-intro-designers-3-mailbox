@@ -102,9 +102,12 @@ class ViewController: UIViewController {
                     self.mailBackground.backgroundColor = UIColor(red: CGFloat(215/255.0), green: CGFloat(166/255.0), blue: CGFloat(120/255.0), alpha: CGFloat(1.0))
                     listIcon.hidden = false
                     laterIcon.hidden = true
-                } else {
+                } else if (translation.x < break1) {
                     // yellow
                     self.mailBackground.backgroundColor = UIColor(red: CGFloat(249/255.0), green: CGFloat(209/255.0), blue: CGFloat(69/255.0), alpha: CGFloat(1.0))
+                } else {
+                    // gray
+                    self.mailBackground.backgroundColor = UIColor(red: CGFloat(226/255.0), green: CGFloat(226/255.0), blue: CGFloat(226/255.0), alpha: CGFloat(1.0))
                 }
             } else {
                 // translate right
