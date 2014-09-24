@@ -1,6 +1,10 @@
-ios-intro-designers-3-mailbox
-=============================
+# Mailbox Demo
 
+This is an iOS demo application for displaying messages and practice gestures.
+
+Time spent: 3 hours spent in total
+
+Completed user stories:
 
  * On dragging the message left...
    * [x] Initially, the revealed background color should be gray.
@@ -23,3 +27,9 @@ ios-intro-designers-3-mailbox
  * [ ] Optional: Tapping on compose should animate to reveal the compose view.
  * [ ] Optional: Tapping the segmented control in the title should swipe views in from the left or right.
  * [ ] Optional: Shake to undo.
+
+Walkthrough of all user stories:
+
+![Video Walkthrough](mailbox.gif)
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
