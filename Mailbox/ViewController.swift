@@ -95,16 +95,16 @@ class ViewController: UIViewController {
                 laterIcon.frame.origin.x = min(320 - 48.0, mail.frame.maxX + 32)
                 listIcon.frame.origin.x = laterIcon.frame.origin.x
                 
-                if (translation.x < break2) {
+                listIcon.hidden = true
+                laterIcon.hidden = false
+                if translation.x < break2 {
                     // brown background, list options
                     self.mailBackground.backgroundColor = UIColor(red: CGFloat(215/255.0), green: CGFloat(166/255.0), blue: CGFloat(120/255.0), alpha: CGFloat(1.0))
                     listIcon.hidden = false
                     laterIcon.hidden = true
-                } else if (translation.x < break1) {
+                } else {
                     // yellow
                     self.mailBackground.backgroundColor = UIColor(red: CGFloat(249/255.0), green: CGFloat(209/255.0), blue: CGFloat(69/255.0), alpha: CGFloat(1.0))
-                    listIcon.hidden = true
-                    laterIcon.hidden = false
                 }
             } else {
                 // translate right
@@ -139,7 +139,7 @@ class ViewController: UIViewController {
             var hideMessageOnComplete = false
             
             // decide to go up and down
-            UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            UIView.animateWithDuration(0.7, animations: { () -> Void in
                 
                 self.listIcon.hidden = true
                 self.laterIcon.hidden = true
