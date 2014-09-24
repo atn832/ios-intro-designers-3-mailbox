@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var archiveIcon: UIImageView!
+    @IBOutlet weak var deleteIcon: UIImageView!
     @IBOutlet weak var mail: UIImageView!
     var originalMailX: CGFloat!
     @IBOutlet weak var laterIcon: UIImageView!
@@ -20,6 +22,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mailsView: UIImageView!
     @IBOutlet weak var todoView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -61,6 +64,10 @@ class ViewController: UIViewController {
     @IBAction func onMessagePan(panGestureRecognizer: UIPanGestureRecognizer) {
         let break1 = CGFloat(-60.0)
         let break2 = CGFloat(-160.0)
+        
+        let break1r = CGFloat(60)
+        let break2r = CGFloat(160)
+        
         let maxX = view.frame.width
         var point = panGestureRecognizer.locationInView(view)
         var velocity = panGestureRecognizer.velocityInView(view)
@@ -73,37 +80,83 @@ class ViewController: UIViewController {
             println("Gesture changed at: \(point)")
             mail.frame.origin.x = originalMailX + translation.x
             
-            let u = -Float(translation.x) / 60
-            laterIcon.alpha = CGFloat(u)
-            if (translation.x < break2) {
-                // brown background, list options
-                self.mailBackground.backgroundColor = UIColor(red: CGFloat(215/255.0), green: CGFloat(166/255.0), blue: CGFloat(120/255.0), alpha: CGFloat(1.0))
-                listIcon.hidden = false
-                laterIcon.hidden = true
-            } else if (translation.x < break1) {
-                // yellow
-                self.mailBackground.backgroundColor = UIColor(red: CGFloat(249/255.0), green: CGFloat(209/255.0), blue: CGFloat(69/255.0), alpha: CGFloat(1.0))
-                listIcon.hidden = true
-                laterIcon.hidden = false
+            if (translation.x < 0) {
+                // translate left
+                let u = -Float(translation.x) / 60
+                laterIcon.alpha = CGFloat(u)
+                if (translation.x < break2) {
+                    // brown background, list options
+                    self.mailBackground.backgroundColor = UIColor(red: CGFloat(215/255.0), green: CGFloat(166/255.0), blue: CGFloat(120/255.0), alpha: CGFloat(1.0))
+                    listIcon.hidden = false
+                    laterIcon.hidden = true
+                } else if (translation.x < break1) {
+                    // yellow
+                    self.mailBackground.backgroundColor = UIColor(red: CGFloat(249/255.0), green: CGFloat(209/255.0), blue: CGFloat(69/255.0), alpha: CGFloat(1.0))
+                    listIcon.hidden = true
+                    laterIcon.hidden = false
+                }
+            } else {
+                // translate right
+                archiveIcon.hidden = false
+                deleteIcon.hidden = true
+                if (translation.x < break1r) {
+                    // gray
+                    self.mailBackground.backgroundColor = UIColor(red: CGFloat(226/255.0), green: CGFloat(226/255.0), blue: CGFloat(226/255.0), alpha: CGFloat(1.0))
+                } else if (translation.x < break2r) {
+                    // green
+                    self.mailBackground.backgroundColor = UIColor(red: CGFloat(115/255.0), green: CGFloat(212/255.0), blue: CGFloat(103/255.0), alpha: CGFloat(1.0))
+                } else {
+                    // red
+                    self.mailBackground.backgroundColor = UIColor(red: CGFloat(222/255.0), green: CGFloat(81/255.0), blue: CGFloat(56/255.0), alpha: CGFloat(1.0))
+                    archiveIcon.hidden = true
+                    deleteIcon.hidden = false
+                }
             }
         } else if panGestureRecognizer.state == UIGestureRecognizerState.Ended {
             println("Gesture ended at: \(point)")
+            
+            var hideMessageOnComplete = false
+            
             // decide to go up and down
             UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
                 println(translation.x)
-                if (translation.x < break2) {
-                    self.mail.frame.origin.x = -maxX
-                    // brown background, list options
-                    self.todoView.alpha = CGFloat(1.0)
-                } else if (translation.x < break1) {
-                    self.mail.frame.origin.x = -maxX
-                    // later options
-                    self.laterView.alpha = CGFloat(1.0)
+                if (translation.x < 0) {
+                    if (translation.x < break2) {
+                        self.mail.frame.origin.x = -maxX
+                        // brown background, list options
+                        self.todoView.alpha = CGFloat(1.0)
+                    } else if (translation.x < break1) {
+                        self.mail.frame.origin.x = -maxX
+                        // later options
+                        self.laterView.alpha = CGFloat(1.0)
+                    } else {
+                        // expand
+                        self.mail.frame.origin.x = 0
+                    }
                 } else {
-                    // expand
-                    self.mail.frame.origin.x = 0
+                    if (translation.x > break2r) {
+                        self.mail.frame.origin.x = maxX
+                        // brown background, list options
+//                        self.todoView.alpha = CGFloat(1.0)
+                        hideMessageOnComplete = true
+                    } else if (translation.x > break1r) {
+                        self.mail.frame.origin.x = maxX
+                        hideMessageOnComplete = true
+                        // later options
+//                        self.laterView.alpha = CGFloat(1.0)
+                    } else {
+                        // expand
+                        self.mail.frame.origin.x = 0
+                    }
                 }
                 }, completion: { (flag: Bool) -> Void in
+                    if hideMessageOnComplete {
+                        UIView.animateWithDuration(0.7, animations: { () -> Void in
+                            self.mailsView.frame.origin.y = self.mailsView.frame.origin.y - self.mail.frame.height
+                            }, completion: { (flag: Bool) -> Void in
+                                    println("done")
+                        })
+                    }
             })
         }
     }

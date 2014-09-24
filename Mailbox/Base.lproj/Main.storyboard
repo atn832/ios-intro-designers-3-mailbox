@@ -20,9 +20,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" id="tvT-i4-svh" userLabel="BackgroundColor">
+                                <rect key="frame" x="16" y="160" width="212" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
                             <imageView contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" id="SKd-L3-0lT">
                                 <rect key="frame" x="-5" y="109" width="320" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.88627457618713379" green="0.88627457618713379" blue="0.88627457618713379" alpha="1" colorSpace="deviceRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="KbT-g3-2Kj" appends="YES" id="hAW-mk-fAO"/>
@@ -50,10 +55,6 @@
                                     <outletCollection property="gestureRecognizers" destination="m3b-s7-PJK" appends="YES" id="HZL-Jn-xJ3"/>
                                 </connections>
                             </imageView>
-                            <view contentMode="scaleToFill" id="tvT-i4-svh">
-                                <rect key="frame" x="16" y="160" width="212" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help_label" id="Mep-uw-55Q">
                                 <rect key="frame" x="70" y="17" width="170" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -62,10 +63,20 @@
                                 <rect key="frame" x="201" y="115" width="63" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="archive_icon" id="AOf-Cc-gOm">
+                                <rect key="frame" x="46" y="69" width="119" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete_icon" id="vc2-T5-cG1">
+                                <rect key="frame" x="2" y="468" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="archiveIcon" destination="AOf-Cc-gOm" id="rma-hf-kIy"/>
+                        <outlet property="deleteIcon" destination="vc2-T5-cG1" id="Uuc-Te-KcU"/>
                         <outlet property="laterIcon" destination="wv1-7x-bSp" id="qhI-SW-Arm"/>
                         <outlet property="laterView" destination="mT4-KO-caE" id="9qX-jS-WMF"/>
                         <outlet property="listIcon" destination="vdw-8X-HHU" id="UHO-1c-lGr"/>
@@ -91,6 +102,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="archive_icon" width="25" height="25"/>
+        <image name="delete_icon" width="25" height="25"/>
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
         <image name="later_icon" width="25" height="25"/>
