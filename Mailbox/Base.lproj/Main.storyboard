@@ -25,11 +25,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="tvT-i4-svh" userLabel="BackgroundColor">
-                                <rect key="frame" x="0.0" y="109" width="320" height="86"/>
+                                <rect key="frame" x="0.0" y="112" width="320" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </view>
                             <imageView contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" id="SKd-L3-0lT">
-                                <rect key="frame" x="0.0" y="109" width="320" height="86"/>
+                                <rect key="frame" x="0.0" y="112" width="320" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.88627457618713379" green="0.88627457618713379" blue="0.88627457618713379" alpha="1" colorSpace="deviceRGB"/>
                                 <gestureRecognizers/>
@@ -56,19 +56,19 @@
                                 </connections>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="later_icon" id="wv1-7x-bSp">
-                                <rect key="frame" x="252" y="115" width="32" height="32"/>
+                                <rect key="frame" x="260" y="139" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list_icon" id="vdw-8X-HHU">
-                                <rect key="frame" x="201" y="115" width="32" height="32"/>
+                                <rect key="frame" x="228" y="139" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="archive_icon" id="AOf-Cc-gOm">
-                                <rect key="frame" x="46" y="69" width="32" height="32"/>
+                                <rect key="frame" x="10" y="136" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete_icon" id="vc2-T5-cG1">
-                                <rect key="frame" x="35" y="301" width="32" height="32"/>
+                                <rect key="frame" x="50" y="136" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
